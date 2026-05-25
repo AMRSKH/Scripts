@@ -1,15 +1,23 @@
-# Windows Temp Cleaner
+# AMSTools Temp Cleaner
 
-Simple Batch Script to automatically clean temporary files on Windows startup.
+Automatic Windows temporary file cleaner using Batch Script.
 
-## Features
+## File Name
+
+```text
+DelTemp.bat
+```
+
+---
+
+# Features
 
 - Clean `%temp%`
 - Clean `C:\Windows\Temp`
 - Clean `C:\Windows\Prefetch`
-- Runs automatically at Windows boot
+- Auto run at Windows startup
 - Lightweight and fast
-- No third-party software required
+- No additional software required
 
 ---
 
@@ -20,9 +28,9 @@ Simple Batch Script to automatically clean temporary files on Windows startup.
 title Temp Cleaner
 color 0A
 
-echo ========================================
-echo        Cleaning Temporary Files
-echo ========================================
+echo =============================================
+echo        Cleaning Temporary Files By AMSTools
+echo =============================================
 echo.
 
 :: Stop Explorer to release temp file locks
@@ -47,9 +55,9 @@ for /d %%x in ("C:\Windows\Prefetch\*") do rd /s /q "%%x" >nul 2>&1
 start explorer.exe
 
 echo.
-echo ========================================
+echo =============================================
 echo      Temporary Files Cleaned
-echo ========================================
+echo =============================================
 pause
 ```
 
@@ -57,27 +65,28 @@ pause
 
 # Installation
 
-## 1. Create Script Folder
-
-Create folder:
+## 1. Create Folder
 
 ```text
 C:\Scripts
 ```
 
-Save the batch file as:
+---
+
+## 2. Save Script
+
+Save as:
 
 ```text
-C:\Scripts\CleanTemp.bat
+C:\Scripts\DelTemp.bat
 ```
 
 ---
 
-# Auto Run on Startup
+# Auto Run at Startup
 
-## Using Task Scheduler
+## Open Task Scheduler
 
-### Step 1
 Press:
 
 ```text
@@ -92,16 +101,9 @@ taskschd.msc
 
 ---
 
-### Step 2
-Click:
+# Create Task
 
-```text
-Create Task
-```
-
----
-
-### General Tab
+## General
 
 Enable:
 
@@ -110,7 +112,7 @@ Enable:
 
 ---
 
-### Triggers Tab
+## Trigger
 
 Create new trigger:
 
@@ -120,17 +122,17 @@ At startup
 
 ---
 
-### Actions Tab
+## Action
 
 Program/script:
 
 ```text
-C:\Scripts\CleanTemp.bat
+C:\Scripts\DelTemp.bat
 ```
 
 ---
 
-### Conditions Tab
+## Conditions
 
 Disable:
 
@@ -140,7 +142,7 @@ Start the task only if the computer is on AC power
 
 ---
 
-### Settings Tab
+## Settings
 
 Enable:
 
@@ -152,12 +154,21 @@ Run task as soon as possible after a scheduled start is missed
 
 # Warning
 
-This script permanently removes temporary files.
+This script permanently deletes temporary files.
 
-Do not use while installing software or running Windows updates.
+Avoid running during:
+- Windows Update
+- Software installation
+- Large file extraction
 
 ---
 
 # License
 
 MIT License
+
+---
+
+# Author
+
+AMSTools
