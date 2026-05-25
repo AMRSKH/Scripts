@@ -1,8 +1,8 @@
 # AMSTools Temp Cleaner
 
-Automatic Windows temporary file cleaner using Batch Script.
+Script សម្រាប់សម្អាត Temporary Files នៅលើ Windows ដោយស្វ័យប្រវត្តិ។
 
-## File Name
+## ឈ្មោះ File
 
 ```text
 DelTemp.bat
@@ -10,14 +10,14 @@ DelTemp.bat
 
 ---
 
-# Features
+# មុខងារ
 
-- Clean `%temp%`
-- Clean `C:\Windows\Temp`
-- Clean `C:\Windows\Prefetch`
-- Auto run at Windows startup
-- Lightweight and fast
-- No additional software required
+- សម្អាត `%temp%`
+- សម្អាត `C:\Windows\Temp`
+- សម្អាត `C:\Windows\Prefetch`
+- ដំណើរការស្វ័យប្រវត្តិនៅពេល Boot Windows
+- ស្រាល និង ដំណើរការលឿន
+- មិនត្រូវការកម្មវិធីបន្ថែម
 
 ---
 
@@ -63,9 +63,11 @@ pause
 
 ---
 
-# Installation
+# របៀបប្រើប្រាស់
 
-## 1. Create Folder
+## 1. បង្កើត Folder
+
+បង្កើត Folder មួយឈ្មោះ៖
 
 ```text
 C:\Scripts
@@ -75,7 +77,7 @@ C:\Scripts
 
 ## 2. Save Script
 
-Save as:
+Save File ជា៖
 
 ```text
 C:\Scripts\DelTemp.bat
@@ -83,25 +85,27 @@ C:\Scripts\DelTemp.bat
 
 ---
 
-# Auto Run at Startup
+# កំណត់ឲ្យដំណើរការស្វ័យប្រវត្តិពេលបើក Windows
 
-## Open Task Scheduler
+## បើក Task Scheduler
 
-Press:
+ចុច៖
 
 ```text
 Win + R
 ```
 
-Type:
+វាយ៖
 
 ```text
 taskschd.msc
 ```
 
+បន្ទាប់មកចុច Enter
+
 ---
 
-# Create Task
+# បង្កើត Task ថ្មី
 
 ## General
 
@@ -114,7 +118,7 @@ Enable:
 
 ## Trigger
 
-Create new trigger:
+បង្កើត Trigger ថ្មី៖
 
 ```text
 At startup
@@ -134,7 +138,7 @@ C:\Scripts\DelTemp.bat
 
 ## Conditions
 
-Disable:
+ដោះធីក៖
 
 ```text
 Start the task only if the computer is on AC power
@@ -152,23 +156,22 @@ Run task as soon as possible after a scheduled start is missed
 
 ---
 
-# Warning
+# ការប្រុងប្រយ័ត្ន
 
-This script permanently deletes temporary files.
+Script នេះនឹងលុប Temporary Files ជាអចិន្ត្រៃយ៍។
 
-Avoid running during:
-- Windows Update
-- Software installation
-- Large file extraction
+មិនគួរប្រើនៅពេល៖
+
+- Windows កំពុង Update
+- កំពុង Install កម្មវិធី
+- កំពុង Extract File ធំៗ
 
 ---
 
 # License
-
 MIT License
 
 ---
 
 # Author
-
 [AMSTools](https://amsofficial-dev.vercel.app/)
