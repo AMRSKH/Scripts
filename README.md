@@ -1,177 +1,39 @@
-# AMSTools Temp Cleaner
+# ឧបករណ៍សម្អាតប្រព័ន្ធ (Windows System Cleaners)
 
-Script សម្រាប់សម្អាត Temporary Files នៅលើ Windows ដោយស្វ័យប្រវត្តិ។
-
-## ឈ្មោះ File
-
-```text
-DelTemp.bat
-```
+ឃ្លាំងផ្ទុកនេះមានឧបករណ៍សម្អាតប្រព័ន្ធ Windows ចំនួនពីរ ដែលបង្កើតឡើងដោយ **AMSDev** ដើម្បីជួយឱ្យកុំព្យូទ័ររបស់អ្នកដើរលឿន និងមានទំហំផ្ទុកទិន្នន័យទូលាយជាងមុន។
+*(This repository contains two Windows system cleaner scripts developed by AMSDev to help keep your computer fast and save storage space.)*
 
 ---
 
-# មុខងារ
+## 1. AMS-SysCleaner.bat (ជំនាន់ថ្មី / Advanced Version)
 
-- សម្អាត `%temp%`
-- សម្អាត `C:\Windows\Temp`
-- សម្អាត `C:\Windows\Prefetch`
-- ដំណើរការស្វ័យប្រវត្តិនៅពេល Boot Windows
-- ស្រាល និង ដំណើរការលឿន
-- មិនត្រូវការកម្មវិធីបន្ថែម
+នេះគឺជាឧបករណ៍សម្អាតកម្រិតខ្ពស់ដែលមានម៉ឺនុយងាយស្រួលជ្រើសរើស សម្រាប់អ្នកប្រើប្រាស់។ វានឹងទាមទារសិទ្ធិជា Administrator ដោយស្វ័យប្រវត្តិដើម្បីលុបឯកសារស៊ីជម្រៅ។
+*(This is an advanced cleaning tool with an interactive menu. It automatically requests Administrator privileges to clean deep system files.)*
 
----
+**លក្ខណៈពិសេសដែលមាន (Features):**
+* **[1]** សម្អាតឯកសារបណ្ដោះអាសន្ន (Clean Temporary Files: User, Windows, Prefetch)
+* **[2]** សម្អាត Windows Update Cache (លុបឯកសារ Update ចាស់ៗដែលស៊ីទំហំផ្ទុកធំ)
+* **[3]** សម្អាតធុងសំរាម (Empty Recycle Bin)
+* **[4]** លុប DNS Cache (ជំនួយដល់ការដោះស្រាយបញ្ហាអ៊ីនធឺណិតដើរយឺត)
+* **[5]** មុខងារ Deep Clean (ដំណើរការមុខងារសម្អាតខាងលើទាំងអស់ក្នុងពេលតែមួយ ហើយ Restart Windows Explorer)
 
-# Script
-
-```bat
-@echo off
-title Temp Cleaner
-color 0A
-
-echo =============================================
-echo        Cleaning Temporary Files By AMSTools
-echo =============================================
-echo.
-
-:: Stop Explorer to release temp file locks
-taskkill /f /im explorer.exe >nul 2>&1
-
-:: Clean User Temp
-echo Cleaning %%temp%% ...
-del /f /s /q "%temp%\*" >nul 2>&1
-for /d %%x in ("%temp%\*") do rd /s /q "%%x" >nul 2>&1
-
-:: Clean Windows Temp
-echo Cleaning C:\Windows\Temp ...
-del /f /s /q "C:\Windows\Temp\*" >nul 2>&1
-for /d %%x in ("C:\Windows\Temp\*") do rd /s /q "%%x" >nul 2>&1
-
-:: Clean Prefetch
-echo Cleaning Prefetch ...
-del /f /s /q "C:\Windows\Prefetch\*" >nul 2>&1
-for /d %%x in ("C:\Windows\Prefetch\*") do rd /s /q "%%x" >nul 2>&1
-
-:: Restart Explorer
-start explorer.exe
-
-echo.
-echo =============================================
-echo      Temporary Files Cleaned
-echo =============================================
-pause
-```
+**របៀបប្រើប្រាស់ (How to use):**
+គ្រាន់តែចុចពីរដង (Double-click) លើឯកសារ `AMS-SysCleaner.bat` ហើយវាយលេខ (១-៦) តាមម៉ឺនុយដែលអ្នកចង់ជ្រើសរើស។
 
 ---
 
-# របៀបប្រើប្រាស់
+## 2. DelTemp.bat (ជំនាន់ចាស់ / Classic Version)
 
-## 1. បង្កើត Folder
+នេះគឺជាឧបករណ៍សម្អាតឯកសារបណ្ដោះអាសន្នជំនាន់ដំបូង (Simple Script) ដំណើរការលឿនរហ័សដោយមិនបាច់រើសម៉ឺនុយ។ វាដំណើរការដោយស្វ័យប្រវត្តិ។
+*(This is the classic, simple temporary file cleaner. It runs automatically without a menu.)*
 
-បង្កើត Folder មួយឈ្មោះ៖
+**អ្វីដែលវាធ្វើ (What it does):**
+* បិទ Windows Explorer ជាបណ្ដោះអាសន្នដើម្បីដោះសោឯកសារ (Releases temp file locks)
+* សម្អាត `%temp%`, `C:\Windows\Temp`, និង `C:\Windows\Prefetch`
+* បើក Windows Explorer ឡើងវិញដោយស្វ័យប្រវត្តិ (Restarts Explorer)
 
-```text
-C:\Scripts
-```
-
----
-
-## 2. Save Script
-
-Save File ជា៖
-
-```text
-C:\Scripts\DelTemp.bat
-```
+**របៀបប្រើប្រាស់ (How to use):**
+គ្រាន់តែចុចពីរដង (Double-click) លើឯកសារ `DelTemp.bat` ដើម្បីដំណើរការការសម្អាតភ្លាមៗ។
 
 ---
-
-# កំណត់ឲ្យដំណើរការស្វ័យប្រវត្តិពេលបើក Windows
-
-## បើក Task Scheduler
-
-ចុច៖
-
-```text
-Win + R
-```
-
-វាយ៖
-
-```text
-taskschd.msc
-```
-
-បន្ទាប់មកចុច Enter
-
----
-
-# បង្កើត Task ថ្មី
-
-## General
-
-Enable:
-
-- Run with highest privileges
-- Run whether user is logged on or not
-
----
-
-## Trigger
-
-បង្កើត Trigger ថ្មី៖
-
-```text
-At startup
-```
-
----
-
-## Action
-
-Program/script:
-
-```text
-C:\Scripts\DelTemp.bat
-```
-
----
-
-## Conditions
-
-ដោះធីក៖
-
-```text
-Start the task only if the computer is on AC power
-```
-
----
-
-## Settings
-
-Enable:
-
-```text
-Run task as soon as possible after a scheduled start is missed
-```
-
----
-
-# ការប្រុងប្រយ័ត្ន
-
-Script នេះនឹងលុប Temporary Files ជាអចិន្ត្រៃយ៍។
-
-មិនគួរប្រើនៅពេល៖
-
-- Windows កំពុង Update
-- កំពុង Install កម្មវិធី
-- កំពុង Extract File ធំៗ
-
----
-
-# License
-MIT License
-
----
-
-# Author
-[AMSTools](https://amsofficial-dev.vercel.app/)
+**អភិវឌ្ឍន៍ដោយ / Developed by:** AMSDev
