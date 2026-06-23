@@ -11,7 +11,7 @@ echo.
 taskkill /f /im explorer.exe >nul 2>&1
 
 :: Clean User Temp
-echo Cleaning %%temp%% ...
+echo Cleaning %temp% ...
 del /f /s /q "%temp%\*" >nul 2>&1
 for /d %%x in ("%temp%\*") do rd /s /q "%%x" >nul 2>&1
 
